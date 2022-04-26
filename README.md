@@ -1,0 +1,1 @@
+# yugioh-ocg-data-ingestor
