@@ -1,1 +1,1 @@
-# yugioh-ocg-data-ingestor
+# solomon-ingestor
