@@ -91,15 +91,18 @@ class Ingestor:
                 )
                 
                 card_es_id = resp["hits"]["hits"][0]["_id"]
-                jp_name = self.get_japanese_name(card["name"])
+                card_jp_name = resp["hits"]["hits"][0].get("jp_name")
 
-                self.es.update(
-                    index=self.index,
-                    id=card_es_id,
-                    doc={
-                        "jp_name": jp_name
-                    }
-                )
+                if card_jp_name is None or card_jp_name == "":
+                    jp_name = self.get_japanese_name(card["name"])
+
+                    self.es.update(
+                        index=self.index,
+                        id=card_es_id,
+                        doc={
+                            "jp_name": jp_name
+                        }
+                    )
 
             self.logger.info("update_japanese_name_in_es", "Add japanese names successfully")
 
