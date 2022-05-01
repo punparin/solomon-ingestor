@@ -69,7 +69,8 @@ class Ingestor:
                     index=self.index,
                     document={
                         "id": card["id"],
-                        "name": card["name"]
+                        "name": card["name"],
+                        "type": card["type"]
                     }
                 )
                 
